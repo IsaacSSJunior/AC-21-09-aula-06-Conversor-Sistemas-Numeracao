@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        input, button {
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: "../Documentos/team.jpg";
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="display" readonly>
+    <br>
+    <button onclick="adicionarNumero('1')">1</button>
+
+
+
+
+
+    <button onclick="adicionarNumero('2')">2</button>
+    <button onclick="adicionarNumero('3')">3</button>
+    <button onclick="adicionarOperacao('+')">+</button>
+    <br>
+    <button onclick="adicionarNumero('4')">4</button>
+    <button onclick="adicionarNumero('5')">5</button>
+    <button onclick="adicionarNumero('6')">6</button>
+    <button onclick="adicionarOperacao('-')">-</button>
+    <br>
+    <button onclick="adicionarNumero('7')">7</button>
+    <button onclick="adicionarNumero('8')">8</button>
+    <button onclick="adicionarNumero('9')">9</button>
+    <button onclick="adicionarOperacao('*')">*</button>
+    <br>
+    <button onclick="adicionarNumero('0')">0</button>
+    <button onclick="adicionarPonto()">.</button>
+    <button onclick="calcular()"></button>
+    <button onclick="adicionarOperacao('/')">/</button>
+    <br>
+    <button onclick="limpar()">C</button>
+</body>
+<script>
+    function adicionarNumero(numero) {
+
+
+        display.value += numero;
+
+        
+    }
+
+
+    function calcular() {
+        var display = display.value;
+        try {
+            var resultado = eval(display);
+            display.value = resultado;
+        } catch (error) {
+            alert('Entrada inválida');
+        }
+    }
+
+    function limpar() {
+        document.getElementById('display').value = '';
+    }
+
+</script>
+</html>
