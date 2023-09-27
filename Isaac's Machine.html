@@ -1,55 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Simples</title>
+    <title>Coversor numérico!</title>
     <style>
-        input, button {
-            font-size: 20px;
-            width: 50px;
-            height: 50px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Nexa, 'Segoe UI', Arial;
+            font-size: 12.5px;
+
+        }
+
+        div {
+            margin: 0 auto;
+            padding-top: 25px;
+            width: 564px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 10px;
+        }
+
+        .div__btns {
+            font-size: 2rem;
+            font-weight: 500;
+            width: 70px;
+            height: 70px;
             background-image: "../Documentos/team.jpg";
+        }
+
+        .div__title {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        #div__display {
+            padding: 5px;
+            font-size: 2rem;
+            font-weight: 400;
+            width: 215px;
+            height: 80px;
+        }
+
+        .div__article-subfooter{
+            display: flex;
+            column-gap: 10px;
+
+
+        }
+
+        .div__btns--sf{
+            width: 102.5px;
         }
     </style>
 </head>
+
 <body>
-    <input type="text" id="display" readonly>
-    <br>
-    <button onclick="adicionarNumero('1')">1</button>
+    <div class="div">
+        <h1 class="div__title">Isaac's Machine</h1>
+        <input type="text" id="div__display" readonly>
 
+        <article class="div__article-head">
+            <button class="div__btns" onclick="adicionarNumero('7')">7</button>
+            <button class="div__btns" onclick="adicionarNumero('8')">8</button>
+            <button class="div__btns" onclick="adicionarNumero('9')">9</button>
+        </article>
 
+        <article class="div__article-main">
+            <button class="div__btns" onclick="adicionarNumero('4')">4</button>
+            <button class="div__btns" onclick="adicionarNumero('5')">5</button>
+            <button class="div__btns" onclick="adicionarNumero('6')">6</button>
+        </article>
 
-
-
-    <button onclick="adicionarNumero('2')">2</button>
-    <button onclick="adicionarNumero('3')">3</button>
-    <button onclick="adicionarOperacao('+')">+</button>
-    <br>
-    <button onclick="adicionarNumero('4')">4</button>
-    <button onclick="adicionarNumero('5')">5</button>
-    <button onclick="adicionarNumero('6')">6</button>
-    <button onclick="adicionarOperacao('-')">-</button>
-    <br>
-    <button onclick="adicionarNumero('7')">7</button>
-    <button onclick="adicionarNumero('8')">8</button>
-    <button onclick="adicionarNumero('9')">9</button>
-    <button onclick="adicionarOperacao('*')">*</button>
-    <br>
-    <button onclick="adicionarNumero('0')">0</button>
-    <button onclick="adicionarPonto()">.</button>
-    <button onclick="calcular()"></button>
-    <button onclick="adicionarOperacao('/')">/</button>
-    <br>
-    <button onclick="limpar()">C</button>
+        <article class="div__article-footer">
+            <button class="div__btns" onclick="adicionarNumero('1')">1</button>
+            <button class="div__btns" onclick="adicionarNumero('2')">2</button>
+            <button class="div__btns" onclick="adicionarOperacao('3')">3</button>
+        </article>
+        <article class="div__article-subfooter">
+            <button class="div__btns div__btns--sf" onclick="adicionarNumero('0')">0</button>
+            <button class="div__btns div__btns--sf" onclick="limpar()">C</button>
+        </article>
+        
+    </div>
 </body>
 <script>
+
     function adicionarNumero(numero) {
 
 
-        display.value += numero;
+        div__display.value += numero;
 
-        
+
     }
 
 
@@ -64,8 +111,9 @@
     }
 
     function limpar() {
-        document.getElementById('display').value = '';
+        div__display.value = '';
     }
 
 </script>
+
 </html>
