@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coversor numérico!</title>
+    <title>Conversor numérico!</title>
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +16,7 @@
 
         }
 
-        div {
+        .div {
             margin: 0 auto;
             padding-top: 25px;
             width: 564px;
@@ -47,15 +48,31 @@
             height: 80px;
         }
 
-        .div__article-subfooter{
+        .div__article-subfooter {
             display: flex;
             column-gap: 10px;
 
 
         }
 
-        .div__btns--sf{
+        .div__btns--sf {
             width: 102.5px;
+        }
+
+        .div__displayfinal {
+            text-align: center;
+            display: none;
+            background-color: #dcdcdc;
+            border-radius: 5px;
+            padding: 5px;
+            color: rgb(7, 7, 7);
+            width: 215px;
+            height: 40px;
+            font-weight: 500;
+        }
+
+        .convert{
+            width: 215px;
         }
     </style>
 </head>
@@ -63,7 +80,7 @@
 <body>
     <div class="div">
         <h1 class="div__title">Isaac's Machine</h1>
-        <input type="text" id="div__display" readonly>
+        <input type="text" id="div__display"placeholder="DECIMAL"readonly>
 
         <article class="div__article-head">
             <button class="div__btns" onclick="adicionarNumero('7')">7</button>
@@ -86,34 +103,62 @@
             <button class="div__btns div__btns--sf" onclick="adicionarNumero('0')">0</button>
             <button class="div__btns div__btns--sf" onclick="limpar()">C</button>
         </article>
-        
+
+        <div>
+            <input onclick="aparecer_octal()" type="checkbox"><b>Converter em Octal...</b>
+            <br>
+            <div class="div__displayfinal" id="demo2"></div>
+            <br>
+            <input onclick="aparecer_hexa()" type="checkbox"><b>Converter em Hexadecimal...</b>
+            <br>
+            <div class="div__displayfinal" id="demo3"></div>
+            <br>
+            <input onclick="aparecer_bin()" type="checkbox"><b>Converter em Binário...</b>
+            <br>
+            <div class="div__displayfinal" id="demo4"></div>
+            <br>
+            <center>
+            <button class="convert" onclick="converter()">Converter</button>
+        </center>
+        </div>
     </div>
-</body>
-<script>
 
-    function adicionarNumero(numero) {
-
-
-        div__display.value += numero;
-
-
-    }
-
-
-    function calcular() {
-        var display = display.value;
-        try {
-            var resultado = eval(display);
-            display.value = resultado;
-        } catch (error) {
-            alert('Entrada inválida');
+    <script>
+        function adicionarNumero(numero) {
+            var div__display = document.getElementById("div__display");
+            div__display.value += numero;
         }
-    }
 
-    function limpar() {
-        div__display.value = '';
-    }
+        function converter() {
+            var div__display = document.getElementById("div__display");
+            var decimal = Number(div__display.value);
 
-</script>
+            let octal = decimal.toString(8);
+            let hexadecimal = decimal.toString(16);
+            let binaria = decimal.toString(2);
+
+            document.getElementById("demo2").innerHTML = ` ${octal}`;
+            document.getElementById("demo3").innerHTML = ` ${hexadecimal}`;
+            document.getElementById("demo4").innerHTML = ` ${binaria}`;
+        }
+
+        function aparecer_bin() {
+            document.getElementById("demo4").style.display = 'block';
+        }
+
+        function aparecer_hexa() {
+            document.getElementById("demo3").style.display = 'block';
+        }
+
+        function aparecer_octal() {
+            document.getElementById("demo2").style.display = 'block';
+        }
+
+        function limpar() {
+            var div__display = document.getElementById("div__display");
+            div__display.value = '';
+        }
+    </script>
+</body>
 
 </html>
